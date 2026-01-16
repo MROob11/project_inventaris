@@ -4,6 +4,9 @@ $dbname = 'db_inventaris';
 $username = 'root';
 $password = '';
 
+// Set Timezone PHP ke WIB (Waktu Indonesia Barat)
+date_default_timezone_set('Asia/Jakarta');
+
 try {
     $pdo_temp = new PDO("mysql:host=$host", $username, $password);
     $pdo_temp->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -14,6 +17,9 @@ try {
 
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+    // Set Timezone MySQL ke +07:00 (WIB) agar sinkron dengan PHP
+    $pdo->exec("SET time_zone = '+07:00';");
 
 } catch (PDOException $e) {
     die("Connection failed: " . $e->getMessage());
