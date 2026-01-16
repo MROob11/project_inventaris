@@ -7,19 +7,23 @@ require_once 'db_connect.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Item | ArthurAdmin</title>
+    <title>Add Item | MukhtarAdmin</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="app-container">
-        <!-- Sidebar -->
+        <!-- Sidebar / Navigasi -->
         <aside class="sidebar">
-            <div class="brand">
-                <span
-                    style="background:var(--text-primary); color:white; padding:4px 8px; border-radius:6px; font-size: 0.9em;">A</span>
-                ArthurInventory
+            <div class="mobile-header">
+                <div class="brand">
+                    <span
+                        style="background:var(--text-primary); color:white; padding:4px 8px; border-radius:6px; font-size: 0.9em;">M</span>
+                    MukhtarInventory
+                </div>
+                <button class="menu-toggle"
+                    onclick="document.querySelector('.nav-menu').classList.toggle('active')">☰</button>
             </div>
             <ul class="nav-menu">
                 <li class="nav-item"><a href="index.php"><span>Dashboard</span></a></li>
@@ -27,7 +31,7 @@ require_once 'db_connect.php';
             </ul>
         </aside>
 
-        <!-- Main Content -->
+        <!-- Konten Utama -->
         <main class="main-content">
             <header class="header">
                 <div>
@@ -40,8 +44,7 @@ require_once 'db_connect.php';
             <div style="max-width: 800px; margin: 0 auto;">
                 <form action="proses_tambah.php" method="POST" class="stat-card">
 
-                    <div style="display:grid; grid-template-columns: 2fr 1fr; gap:2rem;">
-                        <!-- Left Column -->
+                    <div class="form-grid-layout">
                         <div>
                             <div style="margin-bottom: 1.5rem;">
                                 <label
@@ -59,8 +62,7 @@ require_once 'db_connect.php';
                             </div>
                         </div>
 
-                        <!-- Right Column -->
-                        <div style="border-left:1px solid var(--border-color); padding-left:2rem;">
+                        <div class="form-column-right">
                             <div style="margin-bottom: 1.5rem;">
                                 <label
                                     style="display:block; margin-bottom:0.5rem; font-weight:500; color:var(--text-primary);">Price

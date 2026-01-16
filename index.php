@@ -1,17 +1,12 @@
 <?php
 require_once 'db_connect.php';
 
-// Calculate Stats
 try {
     $stmtVal = $pdo->query("SELECT SUM(Harga_barang * Stok_barang) as total_asset FROM Tb_Barang");
     $totalAsset = $stmtVal->fetch()['total_asset'] ?? 0;
 
     $stmtCount = $pdo->query("SELECT COUNT(*) as total_items FROM Tb_Barang");
     $totalItems = $stmtCount->fetch()['total_items'];
-
-    // Low Stock Alert (Threshold < 10)
-    $stmtLow = $pdo->query("SELECT COUNT(*) as low_stock FROM Tb_Barang WHERE Stok_barang < 10");
-    $lowStock = $stmtLow->fetch()['low_stock'];
 
     $stmtRecent = $pdo->query("SELECT * FROM Tb_Barang ORDER BY Last_update DESC LIMIT 5");
     $recentItems = $stmtRecent->fetchAll();
@@ -22,23 +17,37 @@ try {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | ArthurAdmin</title>
+    <title>Dashboard | MukhtarAdmin</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Inter Font for Clean Look -->
+    <!-- Font Inter untuk Tampilan Bersih -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="app-container">
-        <!-- Sidebar -->
+        <!-- Sidebar / Navigasi -->
         <aside class="sidebar">
-            <div class="brand">
-                <span style="background:var(--text-primary); color:white; padding:4px 8px; border-radius:6px; font-size: 0.9em;">A</span>
-                ArthurInventory
+            <div class="mobile-header">
+                <div class="brand">
+                    <span
+                        style="background:var(--text-primary); color:white; padding:4px 8px; border-radius:6px; font-size: 0.9em;">M</span>
+                    MukhtarInventory
+                </div>
+
+
+                <div class="mobile-user-profile">
+                    <span style="font-weight:600; font-size:0.9rem; margin-right:8px;">Mukhtar</span>
+                    <div class="avatar" style="width: 32px; height: 32px; font-size: 0.8rem;">M</div>
+                </div>
+
+                <button class="menu-toggle"
+                    onclick="document.querySelector('.nav-menu').classList.toggle('active')">☰</button>
             </div>
-            
+
             <ul class="nav-menu">
                 <li class="nav-item">
                     <a href="index.php" class="active">
@@ -53,14 +62,15 @@ try {
             </ul>
         </aside>
 
-        <!-- Main Content -->
+        <!-- Konten Utama -->
         <main class="main-content">
             <header class="header">
                 <div>
                     <h1 class="page-title">Overview</h1>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Here is what's happening with your stock today.</p>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Here is what's happening with your
+                        stock today.</p>
                 </div>
-                <div class="user-profile">
+                <div class="user-profile desktop-only">
                     <div style="text-align: right;">
                         <div style="font-weight: 600; font-size: 0.9rem;">Mukhtar</div>
                         <div style="font-size: 0.8rem; color: var(--text-secondary);">Super Admin</div>
@@ -69,10 +79,10 @@ try {
                 </div>
             </header>
 
-            <!-- Stats Widgets -->
+            <!-- Widget Statistik -->
             <div class="stats-grid">
-                
-                <!-- Asset Value -->
+
+                <!-- Nilai Aset -->
                 <div class="stat-card">
                     <div class="stat-header">
                         <span class="stat-label">TOTAL ASSET VALUE</span>
@@ -80,12 +90,16 @@ try {
                     </div>
                     <div class="stat-value">Rp <?= number_format($totalAsset, 0, ',', '.') ?></div>
                     <div class="stat-trend trend-positive">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                            <polyline points="17 6 23 6 23 12"></polyline>
+                        </svg>
                         <span>Verified Valuation</span>
                     </div>
                 </div>
 
-                <!-- Product Count -->
+                <!-- Jumlah Produk -->
                 <div class="stat-card">
                     <div class="stat-header">
                         <span class="stat-label">TOTAL PRODUCTS</span>
@@ -97,8 +111,6 @@ try {
                     </div>
                 </div>
 
-                <!-- Low Stock Alert -->
-                <!-- Dynamic Logic: Green if 0 (Good), Red if > 0 (Action Needed) -->
                 <?php
                 $isHealthy = ($lowStock == 0);
                 $stockColor = $isHealthy ? 'var(--success)' : 'var(--danger)';
@@ -113,21 +125,25 @@ try {
                     <div class="stat-value"><?= $lowStock ?> Items</div>
                     <div class="stat-trend <?= $isHealthy ? 'trend-positive' : 'trend-negative' ?>">
                         <?php if ($isHealthy): ?>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>Stock levels are healthy</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Stock levels are healthy</span>
                         <?php else: ?>
-                                <span>Restock required immediately</span>
+                            <span>Restock required immediately</span>
                         <?php endif; ?>
                     </div>
                 </div>
             </div>
 
-            <!-- Recent Activity Table -->
+            <!-- Tabel Aktivitas Terbaru -->
             <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom: 1rem;">
                 <h3 style="font-size:1.1rem; font-weight:600;">Recent Updates</h3>
-                <a href="list_barang.php" style="font-size:0.9rem; text-decoration:none; color:var(--primary);">View All &rarr;</a>
+                <a href="list_barang.php" style="font-size:0.9rem; text-decoration:none; color:var(--primary);">View All
+                    &rarr;</a>
             </div>
-            
+
             <div class="glass-table-container">
                 <table>
                     <thead>
@@ -150,9 +166,9 @@ try {
                                 </td>
                                 <td>
                                     <?php if ($item['Stok_barang'] < 10): ?>
-                                            <span class="badge badge-danger">Low Stock</span>
+                                        <span class="badge badge-danger">Low Stock</span>
                                     <?php else: ?>
-                                            <span class="badge badge-success">On Stock</span>
+                                        <span class="badge badge-success">On Stock</span>
                                     <?php endif; ?>
                                 </td>
                             </tr>
@@ -164,4 +180,5 @@ try {
         </main>
     </div>
 </body>
+
 </html>

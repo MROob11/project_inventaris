@@ -1,7 +1,6 @@
 <?php
 require_once 'db_connect.php';
 
-// Prepare Toast
 $toastMessage = '';
 $toastType = '';
 if (isset($_GET['status'])) {
@@ -20,7 +19,6 @@ if (isset($_GET['status'])) {
     }
 }
 
-// Search Logic
 $search = $_GET['q'] ?? '';
 $searchParam = "%$search%";
 
@@ -43,19 +41,23 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventory List | ArthurAdmin</title>
+    <title>Inventory List | MukhtarAdmin</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="app-container">
-        <!-- Sidebar -->
+        <!-- Sidebar / Navigasi -->
         <aside class="sidebar">
-            <div class="brand">
-                <span
-                    style="background:var(--text-primary); color:white; padding:4px 8px; border-radius:6px; font-size: 0.9em;">A</span>
-                ArthurInventory
+            <div class="mobile-header">
+                <div class="brand">
+                    <span
+                        style="background:var(--text-primary); color:white; padding:4px 8px; border-radius:6px; font-size: 0.9em;">M</span>
+                    MukhtarInventory
+                </div>
+                <button class="menu-toggle"
+                    onclick="document.querySelector('.nav-menu').classList.toggle('active')">☰</button>
             </div>
             <ul class="nav-menu">
                 <li class="nav-item"><a href="index.php"><span>Dashboard</span></a></li>
@@ -63,7 +65,7 @@ try {
             </ul>
         </aside>
 
-        <!-- Main Content -->
+        <!-- Konten Utama -->
         <main class="main-content">
             <header class="header">
                 <div>
@@ -85,7 +87,7 @@ try {
             <div class="glass-table-container">
                 <div
                     style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; gap:1rem; flex-wrap:wrap;">
-                    <!-- Search Form -->
+                    <!-- Formulir Pencarian -->
                     <form action="" method="GET" style="flex:1; max-width:400px; display:flex; gap:0.5rem;">
                         <input type="text" name="q" placeholder="Search items..." class="form-input" style="margin:0;"
                             value="<?= htmlspecialchars($search) ?>">
@@ -113,7 +115,8 @@ try {
                                     <tr>
                                         <td style="color:var(--text-secondary);"><?= $item['Id_barang'] ?></td>
                                         <td style="font-weight: 600; color:var(--text-primary);">
-                                            <?= htmlspecialchars($item['Nama_barang']) ?></td>
+                                            <?= htmlspecialchars($item['Nama_barang']) ?>
+                                        </td>
                                         <td
                                             style="color: var(--text-secondary); max-width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                                             <?= htmlspecialchars($item['Deskripsi_barang']) ?>

@@ -5,7 +5,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     die("Access Denied");
 }
 
-// 1. Get Data
 $id = $_POST['id_barang'] ?? null;
 $nama = trim($_POST['nama'] ?? '');
 $deskripsi = trim($_POST['deskripsi'] ?? '');
@@ -13,7 +12,6 @@ $harga = $_POST['harga'] ?? '';
 $stok_baru = $_POST['stok'] ?? '';
 $stok_lama_form = $_POST['stok_lama'] ?? 0;
 
-// 2. Strict Validation
 $errors = [];
 
 if (empty($id) || !is_numeric($id))
@@ -29,17 +27,13 @@ if ($stok_baru < 0)
 
 if (!empty($errors)) {
     $errorMsg = implode(" ", $errors);
-    header("Location: list_barang.php?status=error&msg=" . urlencode($errorMsg));
+    header("Location: form_edit.php?id=$id&status=error&msg=" . urlencode($errorMsg));
     exit;
 }
 
-// 3. ATOMIC UPDATE LOGIC
-// Calculate difference: Delta = New Form Value - Original From When Form Loaded
-// DB Stock = DB Stock + Delta
 $delta_stok = intval($stok_baru) - intval($stok_lama_form);
 
 try {
-    // We use a transaction for safety, though single query is atomic enough usually.
     $pdo->beginTransaction();
 
     $sql = "UPDATE Tb_Barang SET 

@@ -10,7 +10,6 @@ $deskripsi = trim($_POST['deskripsi'] ?? '');
 $harga = $_POST['harga'] ?? '';
 $stok = $_POST['stok'] ?? '';
 
-// Validation
 $errors = [];
 if (empty($nama))
     $errors[] = "Name is required.";

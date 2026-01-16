@@ -20,19 +20,23 @@ if (!$item)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Item | ArthurAdmin</title>
+    <title>Edit Item | MukhtarAdmin</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="app-container">
-        <!-- Sidebar -->
+        <!-- Sidebar / Navigasi -->
         <aside class="sidebar">
-            <div class="brand">
-                <span
-                    style="background:var(--text-primary); color:white; padding:4px 8px; border-radius:6px; font-size: 0.9em;">A</span>
-                ArthurInventory
+            <div class="mobile-header">
+                <div class="brand">
+                    <span
+                        style="background:var(--text-primary); color:white; padding:4px 8px; border-radius:6px; font-size: 0.9em;">M</span>
+                    MukhtarInventory
+                </div>
+                <button class="menu-toggle"
+                    onclick="document.querySelector('.nav-menu').classList.toggle('active')">☰</button>
             </div>
             <ul class="nav-menu">
                 <li class="nav-item"><a href="index.php"><span>Dashboard</span></a></li>
@@ -40,7 +44,7 @@ if (!$item)
             </ul>
         </aside>
 
-        <!-- Main Content -->
+        <!-- Konten Utama -->
         <main class="main-content">
             <header class="header">
                 <div>
@@ -52,14 +56,20 @@ if (!$item)
                 </div>
             </header>
 
+            <?php if (isset($_GET['status']) && $_GET['status'] == 'error'): ?>
+                <div
+                    style="background: var(--danger-bg); color: var(--danger); padding: 1rem; border-radius: 6px; margin-bottom: 1.5rem; border: 1px solid currentColor; max-width: 900px; margin-left: auto; margin-right: auto;">
+                    <strong>Error:</strong> <?= htmlspecialchars($_GET['msg'] ?? 'Unknown error') ?>
+                </div>
+            <?php endif; ?>
+
             <div style="max-width: 900px; margin: 0 auto;">
                 <form action="proses_update.php" method="POST" class="stat-card">
                     <input type="hidden" name="id_barang" value="<?= $item['Id_barang'] ?>">
                     <input type="hidden" name="stok_lama" value="<?= $item['Stok_barang'] ?>">
 
-                    <div style="display:grid; grid-template-columns: 2fr 1fr; gap:2.5rem;">
+                    <div class="form-grid-layout">
 
-                        <!-- Left: Main Info -->
                         <div>
                             <h3 style="font-size:1.1rem; font-weight:600; margin-bottom:1.5rem;">Product Details</h3>
 
@@ -79,8 +89,7 @@ if (!$item)
                             </div>
                         </div>
 
-                        <!-- Right: Status & Pricing -->
-                        <div style="border-left:1px solid var(--border-color); padding-left:2rem;">
+                        <div class="form-column-right">
                             <h3 style="font-size:1.1rem; font-weight:600; margin-bottom:1.5rem;">Inventory Status</h3>
 
                             <div style="margin-bottom: 1.5rem;">
