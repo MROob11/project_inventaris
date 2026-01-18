@@ -21,27 +21,27 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | MukhtarAdmin</title>
+    <title>Dashboard | BilliardPro Admin</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font Inter untuk Tampilan Bersih -->
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="app-container">
-        <!-- Sidebar / Navigasi -->
+
         <aside class="sidebar">
             <div class="mobile-header">
                 <div class="brand">
                     <span
-                        style="background:var(--text-primary); color:white; padding:4px 8px; border-radius:6px; font-size: 0.9em;">M</span>
-                    MukhtarInventory
+                        style="background:var(--text-primary); color:white; padding:4px 8px; border-radius:6px; font-size: 0.9em;">B</span>
+                    BilliardPro
                 </div>
 
 
                 <div class="mobile-user-profile">
-                    <span style="font-weight:600; font-size:0.9rem; margin-right:8px;">Mukhtar</span>
-                    <div class="avatar" style="width: 32px; height: 32px; font-size: 0.8rem;">M</div>
+                    <span style="font-weight:600; font-size:0.9rem; margin-right:8px;">Admin</span>
+                    <div class="avatar" style="width: 32px; height: 32px; font-size: 0.8rem;">A</div>
                 </div>
 
                 <button class="menu-toggle"
@@ -62,27 +62,27 @@ try {
             </ul>
         </aside>
 
-        <!-- Konten Utama -->
+
         <main class="main-content">
             <header class="header">
                 <div>
                     <h1 class="page-title">Overview</h1>
                     <p style="color: var(--text-secondary); font-size: 0.95rem;">Here is what's happening with your
-                        stock today.</p>
+                        billiard stock today.</p>
                 </div>
                 <div class="user-profile desktop-only">
                     <div style="text-align: right;">
                         <div style="font-weight: 600; font-size: 0.9rem;">Mukhtar</div>
-                        <div style="font-size: 0.8rem; color: var(--text-secondary);">Super Admin</div>
+                        <div style="font-size: 0.8rem; color: var(--text-secondary);">Store Manager</div>
                     </div>
-                    <div class="avatar">M</div>
+                    <div class="avatar">A</div>
                 </div>
             </header>
 
-            <!-- Widget Statistik -->
+
             <div class="stats-grid">
 
-                <!-- Nilai Aset -->
+
                 <div class="stat-card">
                     <div class="stat-header">
                         <span class="stat-label">TOTAL ASSET VALUE</span>
@@ -99,7 +99,7 @@ try {
                     </div>
                 </div>
 
-                <!-- Jumlah Produk -->
+
                 <div class="stat-card">
                     <div class="stat-header">
                         <span class="stat-label">TOTAL PRODUCTS</span>
@@ -137,7 +137,7 @@ try {
                 </div>
             </div>
 
-            <!-- Tabel Aktivitas Terbaru -->
+
             <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom: 1rem;">
                 <h3 style="font-size:1.1rem; font-weight:600;">Recent Updates</h3>
                 <a href="list_barang.php" style="font-size:0.9rem; text-decoration:none; color:var(--primary);">View All

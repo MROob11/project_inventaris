@@ -7,7 +7,7 @@ require_once 'db_connect.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Item | MukhtarAdmin</title>
+    <title>Add Item | BilliardPro Admin</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -19,8 +19,8 @@ require_once 'db_connect.php';
             <div class="mobile-header">
                 <div class="brand">
                     <span
-                        style="background:var(--text-primary); color:white; padding:4px 8px; border-radius:6px; font-size: 0.9em;">M</span>
-                    MukhtarInventory
+                        style="background:var(--text-primary); color:white; padding:4px 8px; border-radius:6px; font-size: 0.9em;">B</span>
+                    BilliardPro
                 </div>
                 <button class="menu-toggle"
                     onclick="document.querySelector('.nav-menu').classList.toggle('active')">☰</button>
@@ -35,8 +35,8 @@ require_once 'db_connect.php';
         <main class="main-content">
             <header class="header">
                 <div>
-                    <h1 class="page-title">Add New Product</h1>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Create a new item in your inventory.
+                    <h1 class="page-title">Add New Equipment</h1>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Add a new cue, table, or accessory.
                     </p>
                 </div>
             </header>
@@ -50,15 +50,15 @@ require_once 'db_connect.php';
                                 <label
                                     style="display:block; margin-bottom:0.5rem; font-weight:500; color:var(--text-primary);">Product
                                     Name</label>
-                                <input type="text" name="nama" class="form-input" placeholder="e.g. Mechanical Keyboard"
-                                    required>
+                                <input type="text" name="nama" class="form-input"
+                                    placeholder="e.g. Predator Revo Shaft 12.4" required>
                             </div>
 
                             <div style="margin-bottom: 1.5rem;">
                                 <label
                                     style="display:block; margin-bottom:0.5rem; font-weight:500; color:var(--text-primary);">Description</label>
                                 <textarea name="deskripsi" class="form-input" rows="5"
-                                    placeholder="Enter product details..."></textarea>
+                                    placeholder="Material, weight, tip size..."></textarea>
                             </div>
                         </div>
 

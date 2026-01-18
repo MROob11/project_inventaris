@@ -9,8 +9,8 @@
 
     --border-color: #e5e7eb;
 
-    --primary: #2563eb;
-    --primary-soft: #eff6ff;
+    --primary: #15803d;
+    --primary-soft: #dcfce7;
 
     --success: #059669;
     --success-bg: #ecfdf5;
@@ -39,13 +39,13 @@ body {
     min-height: 100vh;
 }
 
-/* --- Tata Letak --- */
+
 .app-container {
     display: flex;
     min-height: 100vh;
 }
 
-/* Sidebar / Navigasi Samping */
+
 .sidebar {
     width: 260px;
     background: var(--bg-sidebar);
@@ -99,7 +99,7 @@ body {
     color: var(--primary);
 }
 
-/* Konten Utama */
+
 .main-content {
     flex: 1;
     margin-left: 260px;
@@ -107,7 +107,7 @@ body {
     max-width: 1600px;
 }
 
-/* Header */
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -141,7 +141,7 @@ body {
     font-weight: 600;
 }
 
-/* Kartu & Statistik */
+
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -213,7 +213,7 @@ body {
     color: var(--text-secondary);
 }
 
-/* Tabel */
+
 .glass-table-container {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
@@ -250,7 +250,7 @@ tr:last-child td {
     border-bottom: none;
 }
 
-/* Lencana Status */
+
 .badge {
     padding: 0.25rem 0.75rem;
     border-radius: 9999px;
@@ -275,7 +275,7 @@ tr:last-child td {
     color: var(--warning);
 }
 
-/* Tombol & Formulir */
+
 .btn {
     padding: 0.6rem 1rem;
     border-radius: 8px;
@@ -289,7 +289,7 @@ tr:last-child td {
     gap: 0.5rem;
 }
 
-/* Status Toggle Global */
+
 .mobile-user-profile {
     display: none;
 }
@@ -319,7 +319,7 @@ tr:last-child td {
     background: #000000;
 }
 
-/* Edit/Delete variants */
+
 .btn-edit {
     background: white;
     border: 1px solid var(--border-color);
@@ -356,7 +356,7 @@ tr:last-child td {
     border-color: var(--text-primary);
 }
 
-/* --- Utilitas Responsif & Grid Formulir --- */
+
 .form-grid-layout {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -368,14 +368,14 @@ tr:last-child td {
     padding-left: 2rem;
 }
 
-/* --- Responsive Mobile / Tablet --- */
+
 @media (max-width: 900px) {
-    /* Ubah layout jadi satu kolom */
+
     .app-container {
         flex-direction: column;
     }
 
-    /* Navigasi Atas dengan Hamburger */
+
     .sidebar {
         width: 100%;
         position: relative;
@@ -383,11 +383,11 @@ tr:last-child td {
         padding: 1rem;
         border-right: none;
         border-bottom: 1px solid var(--border-color);
-        flex-direction: column; /* Ubah ke kolom agar dropdown bisa turun */
+        flex-direction: column;
         align-items: flex-start;
     }
 
-    /* Baris Header (Brand + Toggle) */
+
     .mobile-header {
         display: flex;
         justify-content: space-between;
@@ -412,14 +412,14 @@ tr:last-child td {
         font-size: 1.1rem;
     }
 
-    /* Tombol Hamburger */
+
     .menu-toggle {
-        display: block; /* Show only on mobile */
+        display: block;
     }
 
-    /* Menu Disembunyikan Default */
+
     .nav-menu {
-        display: none; /* Tersembunyi! */
+        display: none;
         flex-direction: column;
         width: 100%;
         padding-top: 1rem;
@@ -429,7 +429,7 @@ tr:last-child td {
         animation: slideDown 0.3s ease-out;
     }
 
-    /* Menu Muncul saat Aktif */
+
     .nav-menu.active {
         display: flex;
     }
@@ -442,11 +442,11 @@ tr:last-child td {
     .nav-item a {
         padding: 0.75rem 1rem;
         font-size: 0.95rem;
-        background: var(--bg-body); /* Sedikit background untuk kontras */
+        background: var(--bg-body);
         width: 100%;
     }
 
-    /* Penyesuaian Konten Utama */
+
     .main-content {
         margin-left: 0;
         padding: 1.5rem;
@@ -467,13 +467,13 @@ tr:last-child td {
         padding-top: 1rem;
     }
 
-    /* Tumpuk Grid & Formulir */
+
     .stats-grid {
-        grid-template-columns: 1fr; /* Tumpuk kartu */
+        grid-template-columns: 1fr;
     }
 
     .form-grid-layout {
-        grid-template-columns: 1fr; /* Tumpuk kolom kiri/kanan */
+        grid-template-columns: 1fr;
         gap: 2rem;
     }
 
@@ -484,14 +484,14 @@ tr:last-child td {
         padding-top: 2rem;
     }
 
-    /* Table Scroll */
+
     .glass-table-container {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
     }
     
     table {
-        min-width: 600px; /* Pastikan tabel tidak terlalu gepeng */
+        min-width: 600px;
     }
 }
 
@@ -506,5 +506,5 @@ tr:last-child td {
         font-size: 1.75rem;
     }
 
-    /* Sembunyikan kolom kurang penting di mobile jika perlu */
+
 }

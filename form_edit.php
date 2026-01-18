@@ -20,7 +20,7 @@ if (!$item)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Item | MukhtarAdmin</title>
+    <title>Edit Item | BilliardPro Admin</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -32,8 +32,8 @@ if (!$item)
             <div class="mobile-header">
                 <div class="brand">
                     <span
-                        style="background:var(--text-primary); color:white; padding:4px 8px; border-radius:6px; font-size: 0.9em;">M</span>
-                    MukhtarInventory
+                        style="background:var(--text-primary); color:white; padding:4px 8px; border-radius:6px; font-size: 0.9em;">B</span>
+                    BilliardPro
                 </div>
                 <button class="menu-toggle"
                     onclick="document.querySelector('.nav-menu').classList.toggle('active')">☰</button>
