@@ -43,8 +43,8 @@ try {
 
 
                 <div class="mobile-user-profile">
-                    <span style="font-weight:600; font-size:0.9rem; margin-right:8px;">Admin</span>
-                    <div class="avatar" style="width: 32px; height: 32px; font-size: 0.8rem;">A</div>
+                    <span style="font-weight:600; font-size:0.9rem; margin-right:8px;">Mukhtar</span>
+                    <div class="avatar" style="width: 32px; height: 32px; font-size: 0.8rem;">M</div>
                 </div>
 
                 <button class="menu-toggle"
@@ -78,7 +78,7 @@ try {
                         <div style="font-weight: 600; font-size: 0.9rem;">Mukhtar</div>
                         <div style="font-size: 0.8rem; color: var(--text-secondary);">Store Manager</div>
                     </div>
-                    <div class="avatar">A</div>
+                    <div class="avatar">M</div>
                 </div>
             </header>
 
