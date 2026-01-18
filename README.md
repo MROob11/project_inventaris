@@ -1,27 +1,55 @@
-# MukhtarInventory - Sistem Manajemen Inventaris
+# BilliardPro Inventory System (Project UAS)
 
-Aplikasi manajemen inventaris barang berbasis PHP & MySQL, dirancang dengan tampilan modern dan responsif untuk mobile & desktop.
+Aplikasi manajemen inventaris barang berbasis PHP & MySQL, dirancang dengan tampilan modern, responsif, dan mudah digunakan. Project ini dibuat untuk memenuhi tugas UAS Pemrograman Web.
 
-## Fitur Utama
+## 📸 Fitur Utama
 
-- **CRUD Inventaris**: Tambah, Edit, Hapus, dan Lihat daftar barang.
-- **Pencarian Real-time**: Cari barang berdasarkan nama atau deskripsi.
-- **Dashboard Overview**: Ringkasan total aset, jumlah produk, dan peringatan stok rendah.
-- **Atomic Updates**: Mencegah konflik data saat update stok bersamaan.
-- **Responsive UI**: Tampilan optimal di HP dan Laptop.
+- **Dashboard Informatif**: Ringkasan total aset, jumlah produk, dan peringatan dini stok menipis (Low Stock Alert).
+- **Manajemen Inventaris (CRUD)**:
+  - **Create**: Tambah barang baru dengan mudah.
+  - **Read**: Lihat daftar barang dengan tabel yang rapi.
+  - **Update**: Edit data barang termasuk stok dan harga.
+  - **Delete**: Hapus barang yang tidak diperlukan.
+- **Pencarian Real-time**: Cari barang berdasarkan nama atau kategori.
+- **Atomic Updates**: Mencegah konflik data saat stok diupdate secara bersamaan.
+- **Responsive Design**: Tampilan yang menyesuaikan otomatis di HP, Tablet, dan Laptop.
 
-## Tautan File Penting
+## 🛠️ Teknologi yang Digunakan
 
-- `index.php`: Halaman Dashboard.
-- `list_barang.php`: Halaman daftar invetaris.
-- `db_connect.php`: Konfigurasi Database.
+- **Backend**: Native PHP (PDO Driver)
+- **Database**: MySQL / MariaDB
+- **Frontend**: HTML5, Modern CSS Variables (Tanpa Framework CSS berat)
+- **Font**: Google Fonts (Inter)
 
-## Cara Instalasi / Hosting
+## 📂 Struktur Folder
+Pastikan nama folder project Anda adalah `project_UAS_inventaris`.
 
-### 1. Persiapan Database
+```
+project_UAS_inventaris/
+├── db_connect.php     # Konfigurasi koneksi database
+├── index.php          # Halaman Dashboard Utama
+├── list_barang.php    # Halaman Daftar Barang
+├── form_edit.php      # Form Edit Barang
+├── form_tambah.php    # Form Tambah Barang
+├── proses_tambah.php  # Logic PHP tambah barang
+├── proses_delete.php  # Logic PHP hapus barang
+├── proses_update.php  # Logic PHP update barang
+├── style.css          # Styling utama
+├── database.sql       # File export database
+└── README.md          # Dokumentasi ini
+```
 
-1. Buat database baru di phpMyAdmin atau cPanel dengan nama `db_inventaris` (atau nama lain yang Anda inginkan).
-2. Import file `database.sql` (jika ada) atau jalankan query berikut untuk membuat tabel:
+## 🚀 Cara Instalasi
+
+### 1. Persiapan Folder
+1. Pastikan folder project ini bernama `project_UAS_inventaris`.
+2. Simpan di dalam folder htdocs XAMPP: `C:\xampp\htdocs\project_UAS_inventaris`.
+
+### 2. Persiapan Database
+1. Buka **phpMyAdmin** (`http://localhost/phpmyadmin`).
+2. Buat database baru dengan nama `db_inventaris`.
+3. Import file `database.sql` yang ada di folder ini ke dalam database tersebut.
+4. Atau jalankan query SQL ini di tab SQL:
 
 ```sql
 CREATE TABLE IF NOT EXISTS Tb_Barang (
@@ -34,21 +62,22 @@ CREATE TABLE IF NOT EXISTS Tb_Barang (
 );
 ```
 
-### 2. Konfigurasi Koneksi
-
-Buka file `db_connect.php` dan sesuaikan pengaturan database Anda:
+### 3. Konfigurasi Koneksi (Opsional)
+Jika Anda menggunakan settingan default XAMPP, tidak perlu mengubah apa-apa.
+Cek file `db_connect.php`:
 
 ```php
-$host = 'localhost';      // Biasanya localhost
-$dbname = 'db_inventaris'; // Nama database Anda
-$username = 'root';        // Username database hosting Anda
-$password = '';            // Password database hosting Anda
+$host = 'localhost';
+$dbname = 'db_inventaris';
+$username = 'root';
+$password = ''; // Kosongkan jika default XAMPP
 ```
 
-### 3. Upload File
-
-Upload semua file PHP dan CSS ke folder `public_html` atau direktori web server Anda.
+### 4. Jalankan Aplikasi
+Buka browser dan akses URL:
+[http://localhost/project_UAS_inventaris/](http://localhost/project_UAS_inventaris/)
+billiardpro.kesug.com
 
 ---
-
-Dikembangkan oleh **MukhtarAdmin** untuk Tugas UAS Pemrograman Web.
+**Dikembangkan oleh Mukhtar**
+_Sistem Informasi Inventaris BilliardPro_
