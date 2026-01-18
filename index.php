@@ -11,6 +11,9 @@ try {
     $stmtRecent = $pdo->query("SELECT * FROM Tb_Barang ORDER BY Last_update DESC LIMIT 5");
     $recentItems = $stmtRecent->fetchAll();
 
+    $stmtLow = $pdo->query("SELECT COUNT(*) as low_stock FROM Tb_Barang WHERE Stok_barang < 10");
+    $lowStock = $stmtLow->fetch()['low_stock'];
+
 } catch (PDOException $e) {
     die("DB Error: " . $e->getMessage());
 }
